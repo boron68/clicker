@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Daryl Mascot Pin</title>
+  <desc id="desc">Stylized pin with a friendly mascot initial D</desc>
+
+  <!-- Background glow -->
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#B59CFF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7C5CFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pinGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7C5CFF"/>
+      <stop offset="100%" stop-color="#5E46C5"/>
+    </linearGradient>
+    <linearGradient id="faceGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#E9E8FF"/>
+    </linearGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="640" height="640" fill="url(#glow)"/>
+
+  <!-- Pin body -->
+  <g filter="url(#softShadow)">
+    <path d="M320 84c-96 0-174 78-174 174 0 116 146 246 166 263a12 12 0 0 0 16 0c20-17 166-147 166-263 0-96-78-174-174-174Z" fill="url(#pinGrad)"/>
+
+    <!-- Face circle -->
+    <circle cx="320" cy="254" r="116" fill="url(#faceGrad)"/>
+
+    <!-- Friendly initial D -->
+    <g fill="#7C5CFF">
+      <path d="M272 194h56c52 0 88 35 88 82s-36 82-88 82h-56v-164Zm40 32v100h16c36 0 56-20 56-50s-20-50-56-50h-16Z"/>
+    </g>
+
+    <!-- Small eyes as playful accents -->
+    <circle cx="290" cy="246" r="6" fill="#5E46C5"/>
+    <circle cx="350" cy="246" r="6" fill="#5E46C5"/>
+  </g>
+
+</svg>
