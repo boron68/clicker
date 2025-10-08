@@ -1,0 +1,102 @@
+/* Aincraft Clicker - Pure CSS visuals, no images */
+:root{
+  --bg: #111418;
+  --panel: #1a1f26;
+  --text: #e9eef5;
+  --muted: #9aa7b4;
+  --accent: #6ee7b7;
+  --outline: #1f242c;
+
+  /* Steve palette */
+  --skin: #a97b5a;
+  --skin-dark: #8e6347;
+  --hair: #3d2618;
+  --eye-white: #f4f7fb;
+  --eye-blue: #2fb9f1;
+  --shirt: #3fa7d6;
+  --shirt-dark: #2b84ad;
+  --pants: #2a3d8f;
+  --pants-dark: #1f2f6d;
+  --boot: #3b2a1d;
+}
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0; background: radial-gradient(1200px 600px at 50% -200px, #1c2430, #0d1116 70%);
+  color:var(--text); font: 600 16px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;
+}
+.app{ max-width: 1100px; margin: 24px auto; padding: 16px; }
+
+h1{ margin: 0 0 16px; font-size: 28px; letter-spacing:.5px; }
+
+.stats{
+  display:flex; gap:16px; flex-wrap:wrap; align-items:center;
+  padding:12px 16px; background:var(--panel); border:2px solid var(--outline); border-radius:10px; box-shadow: inset 0 2px 0 rgba(255,255,255,.03);
+}
+.stat{ color:var(--muted); }
+.stat span{ color:var(--text); font-weight:800; }
+
+.play{ margin-top:18px; display:grid; grid-template-columns: 1fr minmax(260px, 360px); gap:20px; align-items:start; }
+.left{ position:relative; }
+.right{ display:flex; justify-content:center; align-items:flex-end; }
+
+/* Clickable block - CSS only stone block */
+.block{
+  width: 220px; height: 220px; cursor: pointer; border: 4px solid var(--outline); border-radius:12px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.18)),
+    repeating-linear-gradient(45deg,#8d9296 0 12px,#7f8488 12px 24px,#969ba0 24px 36px),
+    repeating-linear-gradient(-45deg,#8b8f93 0 10px,#808488 10px 20px,#94989c 20px 30px);
+  box-shadow: 0 10px 0 #0a0d12, 0 10px 20px rgba(0,0,0,.5);
+}
+.block:focus{ outline: 3px solid #78d9ff; outline-offset: 3px; }
+.block.hit{ animation: thump .15s ease-out; }
+@keyframes thump{ 0%{ transform: translateY(0) scale(1);} 50%{ transform: translateY(2px) scale(.985);} 100%{ transform: translateY(0) scale(1);} }
+
+.controls{ display:flex; align-items:center; gap:12px; margin-top:12px; }
+.btn{ background: linear-gradient(#2a3340,#1f2732); color:var(--text); border:2px solid var(--outline); border-radius:10px; padding:10px 14px; font-weight:800; letter-spacing:.2px; box-shadow: inset 0 2px 0 rgba(255,255,255,.06); cursor:pointer; }
+.btn:disabled{ opacity:.5; cursor:not-allowed; }
+.btn-link{ background:transparent; color:var(--muted); }
+.cost{ color:var(--accent); font-weight:800; }
+
+/* Floating +X effect */
+.float{
+  position:absolute; left:0; top:0; transform: translate(-50%, -50%);
+  color:#fff; font-weight:900; text-shadow: 0 1px 0 #000, 0 2px 8px rgba(0,0,0,.5);
+  animation: floatUp .7s ease-out forwards;
+}
+@keyframes floatUp{ from{ opacity:1; transform: translate(-50%,-50%) translateY(0) scale(1);} to{ opacity:0; transform: translate(-50%,-50%) translateY(-42px) scale(.92);} }
+
+/* Steve (CSS only) */
+.steve-wrapper{ padding: 12px 18px 0; border:2px solid var(--outline); background: var(--panel); border-radius: 12px; box-shadow: inset 0 2px 0 rgba(255,255,255,.03); }
+.steve{ width: 160px; height: 270px; position: relative; filter: drop-shadow(0 10px 10px rgba(0,0,0,.35)); animation: bob 2.6s ease-in-out infinite; }
+@keyframes bob{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(3px);} }
+
+/* Head */
+.steve .head{ width:90px; height:90px; background: linear-gradient(#b08261 72%, var(--skin-dark)); border:3px solid var(--outline); border-radius:10px; margin:0 auto; position:relative; }
+.steve .hair{ position:absolute; left:-3px; right:-3px; top:-3px; height:28px; background: var(--hair); border-top-left-radius:10px; border-top-right-radius:10px; }
+.steve .eyes{ position:absolute; top:40px; left:10px; right:10px; display:flex; justify-content:space-between; }
+.steve .eye{ width:20px; height:14px; background: var(--eye-white); border:2px solid var(--outline); border-radius:3px; position:relative; }
+.steve .eye .pupil{ position:absolute; left:7px; top:2px; width:8px; height:8px; background: var(--eye-blue); border:2px solid var(--outline); border-radius:2px; }
+.steve .nose{ position:absolute; left:50%; top:56px; width:14px; height:10px; transform:translateX(-50%); background: var(--skin-dark); border:2px solid var(--outline); border-radius:3px; }
+.steve .mouth{ position:absolute; left:50%; top:72px; width:36px; height:8px; transform:translateX(-50%); background: #6c4a36; border:2px solid var(--outline); border-radius:3px; }
+
+/* Torso & Arms */
+.steve .torso{ position:relative; width:120px; height:110px; margin:8px auto 0; }
+.steve .chest{ position:absolute; left:50%; transform:translateX(-50%); top:0; width:96px; height:100%; background: linear-gradient(#49b1de, var(--shirt-dark)); border:3px solid var(--outline); border-radius:10px; }
+.steve .arm{ position:absolute; top:0; width:28px; height:100%; background: linear-gradient(#b08261 70%, var(--skin-dark)); border:3px solid var(--outline); border-radius:10px; }
+.steve .arm .sleeve{ position:absolute; left:-3px; right:-3px; top:-3px; height:34px; background: var(--shirt); border-top-left-radius:10px; border-top-right-radius:10px; border-bottom:2px solid var(--outline); }
+.steve .arm.left{ left:-10px; }
+.steve .arm.right{ right:-10px; }
+
+/* Legs */
+.steve .legs{ width:120px; height:110px; margin:6px auto 0; display:flex; justify-content:space-between; }
+.steve .leg{ width:50px; height:100%; background: linear-gradient(#2f469f, var(--pants-dark)); border:3px solid var(--outline); border-radius:10px; position:relative; }
+.steve .leg::after{ content:""; position:absolute; left:-3px; right:-3px; bottom:-3px; height:18px; background: var(--boot); border-top:2px solid var(--outline); border-bottom-left-radius:10px; border-bottom-right-radius:10px; }
+
+/* Utilities */
+@media (max-width: 860px){
+  .play{ grid-template-columns: 1fr; }
+  .right{ order:-1; }
+  .block{ margin: 0 auto; }
+}
