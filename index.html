@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aincraft Clicker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>Aincraft Clicker</h1>
+
+    <div class="stats" role="status" aria-live="polite">
+      <div class="stat"><span id="totalMined">0</span> Blocks</div>
+      <div class="stat">Per Click: <span id="perClick">1</span></div>
+      <div class="stat">Per Sec: <span id="perSec">0</span></div>
+    </div>
+
+    <section class="play">
+      <div class="left">
+        <button id="block" class="block" aria-label="Mine block"></button>
+        <div class="controls">
+          <button id="upgradeClick" class="btn">Upgrade Pickaxe</button>
+          <span id="upgradeCost" class="cost">Cost: 10</span>
+          <button id="reset" class="btn btn-link">Reset</button>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="steve-wrapper">
+          <div class="steve" role="img" aria-label="Steve (CSS only)">
+            <div class="head">
+              <div class="hair"></div>
+              <div class="eyes">
+                <span class="eye left"><i class="pupil"></i></span>
+                <span class="eye right"><i class="pupil"></i></span>
+              </div>
+              <div class="nose"></div>
+              <div class="mouth"></div>
+            </div>
+            <div class="torso">
+              <div class="arm left"><div class="sleeve"></div></div>
+              <div class="chest"></div>
+              <div class="arm right"><div class="sleeve"></div></div>
+            </div>
+            <div class="legs">
+              <div class="leg left"></div>
+              <div class="leg right"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
